@@ -1,14 +1,13 @@
-import { useState } from 'react';
-import BookList from './components/BookList';
-import './App.css';
+import React, { Component } from "react";
+import { Menu } from "@pages/Menu/Menu.jsx";
+import { CartProvider } from "@components/Context/Context"; // <= импорт провайдера
 
-function App() {
-  return (
-    <div>
-      <h1>Items list:</h1>
-      <BookList /> 
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <CartProvider>
+        <Menu />
+      </CartProvider>
+    );
+  }
 }
-
-export default App;
