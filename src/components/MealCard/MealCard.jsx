@@ -22,7 +22,7 @@ export class MealCard extends Component {
     const { item } = this.props;
     const { amount } = this.state;
     this.context.addToCart(item.id, amount);
-    this.setState({ amount: 1 }); // сброс значения
+    this.setState({ amount: 1 }); 
   };
 
   render() {
