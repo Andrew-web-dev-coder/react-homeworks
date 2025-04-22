@@ -15,7 +15,7 @@ export default class Footer extends Component {
         {footerLinks[category].map((item, index) => (
           <li key={index}>
             {isTemplate ? (
-              <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">
+              <a href={item.path} target="_blank" rel="noopener noreferrer">
                 {item.label}
               </a>
             ) : (
