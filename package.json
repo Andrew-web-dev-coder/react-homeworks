@@ -1,7 +1,5 @@
 {
-  "name": "react-homeworks",
-  "author": "Andrei Yeudakimau",
-  "description": "React homework project for rendering a list of books",
+  "name": "react-hw-3",
   "private": true,
   "version": "0.0.0",
   "type": "module",
