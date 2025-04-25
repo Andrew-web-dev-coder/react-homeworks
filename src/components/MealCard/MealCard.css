@@ -1,0 +1,70 @@
+@import "@styles/drop.css";
+
+.mealcard-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .mealcard {
+    width: 580px;
+    height: 200px;
+    background-color: #fff;
+    border: 1.5px solid #35B8BE26;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding: 0 26px;
+  }
+  
+  .mealcard-left {
+    display: block;
+    width: 140px;
+    height: 120px;
+  }
+  
+  .mealcard-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .mealcard-img {
+    width: 100%;
+  }
+  
+  .mealcard-right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+    padding-left: 26px;
+  }
+  
+  .mealcard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .mealcard-title {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.6px;
+  }
+
+  .mealcard-price {
+    color: #35B8BE;
+    font-size: 15px;
+    line-height: 15px;
+  }
+
+  .mealcard-footer {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    align-items: center;
+  }
+  
