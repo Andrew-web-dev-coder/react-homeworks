@@ -1,14 +1,12 @@
-import { useState } from 'react';
-import BookList from './components/BookList';
-import './App.css';
+import React from "react";
+import Login from "@pages/Login/Login.jsx";
 
-function App() {
+import { CartProvider } from "@components/Context/Context"; 
+
+export default function App() {
   return (
-    <div>
-      <h1>Items list:</h1>
-      <BookList /> 
-    </div>
-  );
+    <CartProvider>
+      <Login />
+    </CartProvider>
+  );  
 }
-
-export default App;
