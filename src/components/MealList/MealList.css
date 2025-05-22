@@ -23,6 +23,7 @@
   gap: 30px;
 }
 
+
 .Desert-button {
     padding: 16px 46px;
     font-size: 16px;
@@ -65,11 +66,14 @@
     color: #fff;
 }
 
+
+
 .last-part-container {
     margin-top: 45px;
     display: flex;
     justify-content: center;
 }
+
 
 .last-part {
     margin-bottom: 140px;
@@ -88,3 +92,9 @@
     transition: 0.3s;
     opacity: 1;
 }
+
+.load {
+  display: flex;
+  justify-content: center;
+}
+
