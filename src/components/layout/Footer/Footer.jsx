@@ -1,7 +1,11 @@
 
 import React from "react";
 
+
+import React from "react";
+
 import React, { Component } from "react";
+
 
 import "./Footer.css";
 import Logo from "@images/logo/Logo.png";
@@ -14,8 +18,13 @@ import { footerLinks } from "@data/FooterLinks.js";
 const Footer = () => {
   const renderLinks = (category) => {
 
+
+const Footer = () => {
+  const renderLinks = (category) => {
+
 export default class Footer extends Component {
   renderLinks(category) {
+
 
     const isTemplate = category === "Template";
 

@@ -78,3 +78,4 @@ export class CartProvider extends Component {
     );
   }
 }
+

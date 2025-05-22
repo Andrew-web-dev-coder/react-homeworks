@@ -1,7 +1,11 @@
 
+import React, { useContext, useState, useEffect } from "react";
+
+
 import React, { useContext, useState } from "react";
 
 import React, { Component } from "react";
+
 
 import "./Header.css";
 import { headerLinks } from "@data/HeaderLinks";
@@ -9,10 +13,32 @@ import Logo from "@assets/images/logo/Logo.png";
 import Cart from "@assets/images/icons/Cart.png";
 import { CartContext } from "../../Context/Context";
 
+import { useFetch } from "@hooks/useFetch"; 
+
+
 
 const Header = () => {
   const { cart } = useContext(CartContext);
   const [menuOpen, setMenuOpen] = useState(false);
+
+
+ 
+  const { data, status, error } = useFetch("https://dummyjson.com/carts");
+
+  useFetch("https://dummyjson.com/products/1", { // - test
+  method: "GET"
+});
+
+  
+  useEffect(() => {
+    if (data) {
+      console.log("Fetched carts:", data);
+    }
+    if (error) {
+      console.error("Fetch error:", error);
+    }
+  }, [data, error]);
+
 
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
@@ -51,6 +77,7 @@ const Header = () => {
 };
 
 export default Header;
+
 
 export default class Header extends Component {
   static contextType = CartContext;
