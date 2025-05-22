@@ -23,13 +23,78 @@
   gap: 30px;
 }
 
+
+.Desert-button {
+    padding: 16px 46px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1.5px solid #61728333;
+}
+
+.Desert-button:hover {
+    background-color: #35B8BE;
+    transition: 0.3s;
+    opacity: 1;
+    color: #fff;
+}
+
+.Dinner-button {
+    padding: 16px 46px;
+    font-size: 16px;
+    border: 1.5px solid #61728333;
+    border-radius: 5px;
+}
+
+.Dinner-button:hover {
+    background-color: #35B8BE;
+    transition: 0.3s;
+    opacity: 1;
+    color: #fff;
+}
+
+.Breakfast-button {
+    padding: 16px 46px;
+    font-size: 16px;
+    border: 1.5px solid #61728333;
+    border-radius: 5px;
+}
+
+.Breakfast-button:hover {
+    background-color: #35B8BE;
+    transition: 0.3s;
+    opacity: 1;
+    color: #fff;
+}
+
+
+
 .last-part-container {
     margin-top: 45px;
     display: flex;
     justify-content: center;
 }
 
+
+.last-part {
+    margin-bottom: 140px;
+    padding: 12px 35px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1.5px solid #61728333;
+    background-color: #35B8BE;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.last-part:hover {
+    background-color: rgb(128, 201, 209);
+    transition: 0.3s;
+    opacity: 1;
+}
+
 .load {
   display: flex;
   justify-content: center;
 }
+
