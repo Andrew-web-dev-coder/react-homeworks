@@ -7,10 +7,12 @@ export const footerLinks = {
     ],
     Template: [
 
+
       { label: "Style Guide", path: "#" },
       { label: "Changelog", path: "#" },
       { label: "Licence", path: "#" },
       { label: "Webflow University", path: "#" },
+
 
       { label: "Style Guide", path: "https://www.google.com/" },
       { label: "Changelog", path: "https://www.google.com/" },
