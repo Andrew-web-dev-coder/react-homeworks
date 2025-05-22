@@ -1,0 +1,21 @@
+@import "@styles/drop.css";
+
+input {
+    border-radius: 6px;
+    border: 1px solid #DDDDDD;
+    background: #FAFAFA;
+    font-size: 16px;
+    letter-spacing: 0.36px;
+    display: flex;
+    align-content: center;
+    transition: all 0.3s ease;
+    padding: 11px 2px;
+    text-align: left;
+  }
+  
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+    
