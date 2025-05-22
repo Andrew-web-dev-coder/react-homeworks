@@ -4,7 +4,11 @@ import React from "react";
 
 import React from "react";
 
+
+import React from "react";
+
 import React, { Component } from "react";
+
 
 
 import "./Footer.css";
@@ -22,8 +26,13 @@ const Footer = () => {
 const Footer = () => {
   const renderLinks = (category) => {
 
+
+const Footer = () => {
+  const renderLinks = (category) => {
+
 export default class Footer extends Component {
   renderLinks(category) {
+
 
 
     const isTemplate = category === "Template";
@@ -187,4 +196,5 @@ export default Footer;
     );
   }
 }
+
 

@@ -2,9 +2,13 @@
 import React, { useContext, useState, useEffect } from "react";
 
 
+import React, { useContext, useState, useEffect } from "react";
+
+
 import React, { useContext, useState } from "react";
 
 import React, { Component } from "react";
+
 
 
 import "./Header.css";
@@ -17,12 +21,15 @@ import { useFetch } from "@hooks/useFetch";
 
 
 
+import { useFetch } from "@hooks/useFetch"; 
+
+
+
 const Header = () => {
   const { cart } = useContext(CartContext);
   const [menuOpen, setMenuOpen] = useState(false);
 
 
- 
   const { data, status, error } = useFetch("https://dummyjson.com/carts");
 
   useFetch("https://dummyjson.com/products/1", { // - test

@@ -9,13 +9,20 @@
   line-height: 27px;
   letter-spacing: 0.36px;
   background-color: #35B8BE;
+
+  padding: 12px 27px;
+
   padding: 9px 27px;
+
   color: #fff;
 }
 
 .button:hover {
     background-color: rgb(128, 201, 209);
     transition: 0.3s;
+
+  }
+
 
   }
 

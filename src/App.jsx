@@ -1,5 +1,19 @@
 
 import React from "react";
+import Login from "@pages/Login/Login.jsx";
+
+import { CartProvider } from "@components/Context/Context"; 
+
+export default function App() {
+  return (
+    <CartProvider>
+      <Login />
+    </CartProvider>
+  );  
+}
+
+
+import React from "react";
 import Home from "@pages/Home/Home.jsx";
 
 import { CartProvider } from "@components/Context/Context"; 
@@ -53,3 +67,4 @@ export default class App extends Component {
     );
   }
 }
+

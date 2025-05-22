@@ -33,6 +33,9 @@ export const CartProvider = ({ children }) => {
       {children}
     </CartContext.Provider>
   );
+
+};
+
 };
 
 import React, { Component, createContext } from "react";
@@ -78,4 +81,5 @@ export class CartProvider extends Component {
     );
   }
 }
+
 
