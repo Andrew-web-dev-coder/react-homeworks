@@ -39,4 +39,8 @@ export function useFetch(url, options = {}) {
   }, [url]);
 
   return { data, status, error };
+
 }
+
+}
+
