@@ -10,11 +10,7 @@ input {
     align-content: center;
     transition: all 0.3s ease;
     padding: 11px 2px;
-
     text-align: left;
-
-    text-align: center;
-
   }
   
   input[type=number]::-webkit-inner-spin-button,
@@ -22,3 +18,4 @@ input {
     -webkit-appearance: none;
     margin: 0;
   }
+    

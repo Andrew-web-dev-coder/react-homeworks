@@ -1,35 +1,44 @@
 import { useEffect, useState } from "react";
 
-export function useFetch(url, options = {}) {
-  const [data, setData] = useState(null);
-  const [status, setStatus] = useState(null);
-  const [error, setError] = useState(null);
+interface FetchLog {
+  url: string;
+  body: any;
+  status: number | string;
+  timestamp: string;
+}
+
+export function useFetch<T = any>(url: string, options: RequestInit = {}) {
+  const [data, setData] = useState<T | null>(null);
+  const [status, setStatus] = useState<number | string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const requestInit = {
+        const requestInit: RequestInit = {
           method: options.method || "GET",
           headers: {
             "Content-Type": "application/json",
-            ...options.headers
+            ...(options.headers || {})
           },
           body: options.body ? JSON.stringify(options.body) : undefined
         };
 
         const response = await fetch(url, requestInit);
-        const result = await response.json();
+        const result: T = await response.json();
 
         setStatus(response.status);
         setData(result);
 
-        localStorage.setItem("fetchLog", JSON.stringify({
+        const log: FetchLog = {
           url,
           body: options.body || null,
           status: response.status,
           timestamp: new Date().toISOString()
-        }));
-      } catch (err) {
+        };
+
+        localStorage.setItem("fetchLog", JSON.stringify(log));
+      } catch (err: any) {
         setError(err.message);
         setStatus("failed");
       }
@@ -39,8 +48,4 @@ export function useFetch(url, options = {}) {
   }, [url]);
 
   return { data, status, error };
-
 }
-
-}
-

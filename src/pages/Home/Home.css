@@ -1,47 +1,41 @@
-import styled from 'styled-components';
-import trapezoidBg from "@assets/images/backgrounds/Trapezoid.png";
-
-
-export const HomeSection = styled.section`
-  background-image: url(${trapezoidBg});
+.home-section {
+  background-image: url("../../assets/images/backgrounds/Trapezoid.png");
   background-repeat: no-repeat;
   background-position: top left;
   background-size: cover;
   padding: 40px 0;
   min-height: 100vh;
-`;
+}
 
-
-export const Container = styled.div`
-
+.container {
   max-width: 1232px;
   margin: 100px auto;
   display: flex;
-  align-items: center;  
+  align-items: center;
   justify-content: space-between;
-  font-family: Inter;
-`;
+  font-family: Inter, sans-serif;
+}
 
-export const Title = styled.h1`
+.title {
   font-size: 60px;
   font-weight: 500;
   line-height: 60px;
   margin-bottom: 20px;
-`;
+}
 
-export const Highlight = styled.span`
+.highlight {
   color: #35b8be;
-`;
+}
 
-export const Description = styled.p`
+.description {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 24px;
   max-width: 520px;
   color: #546285;
-`;
+}
 
-export const Button = styled.button`
+.button {
   background-color: #35b8be;
   color: white;
   padding: 12px 24px;
@@ -49,32 +43,29 @@ export const Button = styled.button`
   border: none;
   border-radius: 6px;
   cursor: not-allowed;
-`;
+}
 
-export const TrustBlock = styled.div`
+.trust-block {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-top: 32px;
-`;
+}
 
-
-export const TrustText = styled.p`
+.trust-text {
   font-size: 16px;
   margin-left: 2px;
   margin-top: 10px;
-`;
+}
 
-export const Rating = styled.span`
+.rating {
   color: #35b8be;
   font-weight: bold;
-`;
+}
 
-
-
-export const Image = styled.img`
+.image {
   width: 600px;
   height: auto;
   border-radius: 20px;
   position: relative;
-`;
+}

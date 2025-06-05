@@ -1,19 +1,20 @@
-import React, { useState } from "react";
-import Header from "@components/layout/Header/Header";
-import Footer from "@components/layout/Footer/Footer";
+import React, { useState, FormEvent, ChangeEvent } from "react";
+
 import { Button } from "@components/ui/Button/Button";
 import { Input } from "@components/ui/Input/Input";
+import type { User, Errors } from "types";
 import "./Login.css";
 
-const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({ username: false, password: false });
 
-  const handleLogin = (e) => {
+const Login: React.FC = () => {
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [errors, setErrors] = useState<Errors>({ username: false, password: false });
+
+  const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const newErrors = {
+    const newErrors: Errors = {
       username: username.trim() === "",
       password: password.trim() === "",
     };
@@ -22,7 +23,9 @@ const Login = () => {
     const hasError = Object.values(newErrors).some(Boolean);
     if (hasError) return;
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const storedUsers = localStorage.getItem("users");
+    const users: User[] = storedUsers ? JSON.parse(storedUsers) : [];
+
     const existingUser = users.find((user) => user.username === username);
 
     if (!existingUser) {
@@ -36,7 +39,7 @@ const Login = () => {
 
   return (
     <>
-      <Header />
+      
       <section className="login-section">
         <h2 className="login-title">Log in</h2>
         <div className="login-wrapper">
@@ -47,7 +50,7 @@ const Login = () => {
                 id="username"
                 type="text"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
                 className={`login-input ${errors.username ? "error" : ""}`}
               />
             </div>
@@ -58,7 +61,7 @@ const Login = () => {
                 id="password"
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                 className={`login-input ${errors.password ? "error" : ""}`}
               />
             </div>
@@ -70,7 +73,7 @@ const Login = () => {
           </form>
         </div>
       </section>
-      <Footer />
+     
     </>
   );
 };
