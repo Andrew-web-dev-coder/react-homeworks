@@ -5,11 +5,13 @@ import { Input } from "@components/ui/Input/Input";
 import type { User, Errors } from "types";
 import "./Login.css";
 
-
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [errors, setErrors] = useState<Errors>({ username: false, password: false });
+  const [errors, setErrors] = useState<Errors>({
+    username: false,
+    password: false,
+  });
 
   const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,7 +41,6 @@ const Login: React.FC = () => {
 
   return (
     <>
-      
       <section className="login-section">
         <h2 className="login-title">Log in</h2>
         <div className="login-wrapper">
@@ -73,7 +74,6 @@ const Login: React.FC = () => {
           </form>
         </div>
       </section>
-     
     </>
   );
 };

@@ -1,13 +1,12 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom"; 
+import React, { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
-import { NavLink } from "react-router-dom";
 
 import { headerLinks } from "@data/HeaderLinks";
 import Logo from "@images/logo/Logo.png";
 import Cart from "@images/icons/Cart.png";
 
-import { CartContext } from "../../Context/Context";
+import { useCart } from "@hooks/useCart";
 import { useFetch } from "@hooks/useFetch";
 
 interface HeaderLink {
@@ -16,14 +15,10 @@ interface HeaderLink {
 }
 
 const Header: React.FC = () => {
-  const context = useContext(CartContext);
-  if (!context) return null;
-
-  const { cart } = context;
+  const { cart } = useCart(); // хук
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const { data, status, error } = useFetch<any>("https://dummyjson.com/carts");
-
   useFetch("https://dummyjson.com/products/1", { method: "GET" });
 
   useEffect(() => {
@@ -36,10 +31,7 @@ const Header: React.FC = () => {
   };
 
   const getTotalItems = (): number => {
-    return Object.values(cart as Record<string, number>).reduce(
-      (acc, quantity) => acc + quantity,
-      0
-    );
+    return Object.values(cart).reduce((acc, quantity) => acc + quantity, 0);
   };
 
   return (
