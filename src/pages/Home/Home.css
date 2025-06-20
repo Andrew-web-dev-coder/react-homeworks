@@ -8,15 +8,14 @@
   padding: 40px 0;
   min-height: 100vh;
   position: relative;
-  background-color: var(--section-bg, #ffffff);
 }
 
 [data-theme="dark"] .home-section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: #121212;
-  mix-blend-mode: multiply;
+  background-color: var(--bg-color);
+  /* mix-blend-mode: multiply; */
   z-index: 0;
 }
 

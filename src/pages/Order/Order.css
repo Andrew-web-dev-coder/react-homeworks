@@ -1,9 +1,16 @@
+@import "@styles/drop.css";
+
 .order-section {
     background: url("@assets/images/backgrounds/BG Shape Content.png");
     background-size: cover;
     padding: 140px 120px 10px 120px;
     margin-top: -4px;
   }
+
+[data-theme='dark'] .order-section {
+  background-color: var(--bg-color);
+  background-image: none;
+}
 
 .order-title {
   text-align: center;
@@ -30,6 +37,11 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
+[data-theme='dark'] .order-item {
+  background-color: var(--card-bg);
+  border-color: var(--button-bg);
+}
+
 .order-item-left {
   display: flex;
   align-items: center;
@@ -47,6 +59,10 @@
 .order-name {
   font-weight: 500;
   color: #333;
+}
+
+[data-theme='dark'] .order-name {
+  color: var(--text-color);
 }
 
 .order-item-right {
@@ -101,6 +117,10 @@
   font-weight: 500;
   font-size: 18px;
   color: #333;
+}
+
+[data-theme='dark'] .order-form label {
+  color: var(--text-color);
 }
 
 .order-form input {

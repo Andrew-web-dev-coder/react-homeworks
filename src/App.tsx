@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import '@styles/theme.css';
 import Layout from "@components/layout/Layout";
 import Home from "@pages/Home/Home";
 import Menu from "@pages/Menu/Menu";

@@ -4,6 +4,10 @@
     background-color: #F5FBFC;
 }
 
+[data-theme='dark'] .mealList-container {
+  background-color: var(--bg-color);
+}
+
 .meal-buttons-container {
   display: flex;
   flex-direction: row;

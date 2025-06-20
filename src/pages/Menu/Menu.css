@@ -1,47 +1,61 @@
-.menu-section {
-    background: url("@assets/images/backgrounds/BG Shape Content.png");
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 140px 120px 10px 120px;
-    margin-top: -4px;
-  }
-  
-  .menu-heading-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-  }
-  
-  .menu-heading {
-    font-size: 50px;
-    font-weight: 400;
-    margin-bottom: 16px;
-    color: #35B8BE;
-  }
-  
-  .menu-subtext {
-    font-size: 18px;
-    font-weight: 400;
-    color: #546285;
-    text-align: center;
-    max-width: 600px;
-  }
-  
-  .phone:hover {
-    color: #35B8BE;
-    transition: color 0.3s ease;
-  }
+@import "@styles/drop.css";
 
-  .menu-see-more-button {
-    padding: 16px !important;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 20px;
-    margin-top: 65px;
-  }
-  
+.menu-section {
+  background: url("@assets/images/backgrounds/BG Shape Content.png");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 140px 120px 10px 120px;
+  margin-top: -4px;
+}
+
+[data-theme='dark'] .menu-section {
+  background-color: var(--bg-color);
+  background-image: none;
+}
+
+.menu-heading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.menu-heading {
+  font-size: 50px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: #35B8BE;
+}
+
+.menu-subtext {
+  font-size: 18px;
+  font-weight: 400;
+  color: #546285;
+  text-align: center;
+  max-width: 600px;
+}
+
+
+[data-theme='dark'] .menu-subtext {
+  color: var(--text-color);
+}
+
+.phone:hover {
+  color: #35B8BE;
+  transition: color 0.3s ease;
+}
+
+.menu-see-more-button {
+  padding: 16px !important;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 65px;
+}
+
+
+
