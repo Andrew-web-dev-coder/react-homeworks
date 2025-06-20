@@ -2,11 +2,11 @@ import React from "react";
 import burgerImage from "@assets/images/home/food.png";
 import starIcon from "@assets/images/home/star.svg";
 import "./Home.css";
+import { Button } from "@components/ui/Button/Button";
 
 export default function Home() {
   return (
     <>
-     
       <section className="home-section">
         <div className="container">
           <div>
@@ -18,9 +18,9 @@ export default function Home() {
               industry. Lorem Ipsum has been the industry’s standard dummy text
               ever since the 1500.
             </p>
-            <button className="button" disabled>
+            <Button className="button" disabled>
               Place an Order
-            </button>
+            </Button>
 
             <div className="trust-block">
               <img src={starIcon} alt="Trustpilot" />
@@ -33,7 +33,6 @@ export default function Home() {
           <img src={burgerImage} alt="Food" className="image" />
         </div>
       </section>
-
     </>
   );
 }

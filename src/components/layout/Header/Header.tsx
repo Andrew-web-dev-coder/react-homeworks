@@ -1,14 +1,14 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom"; 
+import React, { useState, useEffect, useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
-import { NavLink } from "react-router-dom";
 
 import { headerLinks } from "@data/HeaderLinks";
 import Logo from "@images/logo/Logo.png";
 import Cart from "@images/icons/Cart.png";
 
-import { CartContext } from "../../Context/Context";
+import { useCart } from "@hooks/useCart";
 import { useFetch } from "@hooks/useFetch";
+import { ThemeContext } from "@context/ThemeContext"; 
 
 interface HeaderLink {
   label: string;
@@ -16,14 +16,14 @@ interface HeaderLink {
 }
 
 const Header: React.FC = () => {
-  const context = useContext(CartContext);
-  if (!context) return null;
-
-  const { cart } = context;
+  const { cart } = useCart();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [username, setUsername] = useState<string>("");
+
+  const { theme, toggleTheme } = useContext(ThemeContext); // 🆕 используем тему
 
   const { data, status, error } = useFetch<any>("https://dummyjson.com/carts");
-
   useFetch("https://dummyjson.com/products/1", { method: "GET" });
 
   useEffect(() => {
@@ -31,15 +31,23 @@ const Header: React.FC = () => {
     if (error) console.error("Fetch error:", error);
   }, [data, error]);
 
+  useEffect(() => {
+    const auth = sessionStorage.getItem("isAuthenticated");
+    const users = localStorage.getItem("users");
+    if (auth === "true" && users) {
+      const parsed = JSON.parse(users);
+      const lastUser = parsed[parsed.length - 1];
+      setUsername(lastUser?.username || "User");
+      setIsAuthenticated(true);
+    }
+  }, []);
+
   const toggleMenu = (): void => {
     setMenuOpen((prev) => !prev);
   };
 
   const getTotalItems = (): number => {
-    return Object.values(cart as Record<string, number>).reduce(
-      (acc, quantity) => acc + quantity,
-      0
-    );
+    return Object.values(cart).reduce((acc, quantity) => acc + quantity, 0);
   };
 
   return (
@@ -51,24 +59,49 @@ const Header: React.FC = () => {
 
         <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
           <ul>
-            {headerLinks.map((link: HeaderLink, index: number) => (
-              <li key={index}>
-                <NavLink
-                  to={link.path}
-                  className={({ isActive }) => (isActive ? "active" : "")}
-                >
-                  {link.label}
-                </NavLink>
-              </li>
-            ))}
+            {headerLinks.map((link: HeaderLink, index: number) => {
+              if (link.label === "Login") {
+                return (
+                  <li key={index}>
+                    {isAuthenticated ? (
+                      <span className="username">{username}</span>
+                    ) : (
+                      <NavLink
+                        to={link.path}
+                        className={({ isActive }) => (isActive ? "active" : "")}
+                      >
+                        {link.label}
+                      </NavLink>
+                    )}
+                  </li>
+                );
+              }
+
+              return (
+                <li key={index}>
+                  <NavLink
+                    to={link.path}
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                  >
+                    {link.label}
+                  </NavLink>
+                </li>
+              );
+            })}
           </ul>
 
-          <button className="cart-button" onClick={toggleMenu}>
+          {/* 🌗 Кнопка смены темы */}
+          <button className="theme-toggle" onClick={toggleTheme}>
+            {theme === "light" ? "🌙" : "☀️"}
+          </button>
+
+          {/* 🛒 Корзина */}
+          <Link to="/order" className="cart-button">
             <img src={Cart} alt="Cart icon" />
             <div className="cart-count">
               <span>{getTotalItems()}</span>
             </div>
-          </button>
+          </Link>
         </nav>
       </div>
     </header>

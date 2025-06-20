@@ -1,19 +1,18 @@
-import React, { useContext, useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent } from "react";
 import "./MealCard.css";
+
 import { Button } from "../ui/Button/Button";
 import { Input } from "../ui/Input/Input";
-import { CartContext } from "../Context/Context";
+
 import type { Meal } from "../../types/products";
+import { useCart } from "@hooks/useCart";
 
 interface MealCardProps {
   item: Meal;
 }
 
 export const MealCard: React.FC<MealCardProps> = ({ item }) => {
-  const context = useContext(CartContext);
-  if (!context) return null;
-
-  const { addToCart } = context;
+  const { add } = useCart(); 
   const [amount, setAmount] = useState<number>(1);
 
   const handleAmountChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -21,10 +20,9 @@ export const MealCard: React.FC<MealCardProps> = ({ item }) => {
   };
 
   const handleAddToCart = () => {
-  addToCart(String(item.id), amount); 
-  setAmount(1);
-};
-
+    add(String(item.id), amount); 
+    setAmount(1);
+  };
 
   return (
     <div className="mealcard">
