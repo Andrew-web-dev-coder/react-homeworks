@@ -25,8 +25,8 @@ body {
 	margin: 0;
 	font-family: "Poppins", serif;
 	line-height: 1.6;
-	color: var(--text-color);              /* подключение темы */
-	background-color: var(--bg-color);     /* подключение темы */
+	color: var(--text-color);              
+	background-color: var(--bg-color);     
 }
 
 aside, nav, header, section, main {
