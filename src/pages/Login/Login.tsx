@@ -1,4 +1,5 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Button } from "@components/ui/Button/Button";
 import { Input } from "@components/ui/Input/Input";
@@ -12,6 +13,8 @@ const Login: React.FC = () => {
     username: false,
     password: false,
   });
+
+  const navigate = useNavigate();
 
   const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,9 +36,15 @@ const Login: React.FC = () => {
     if (!existingUser) {
       users.push({ username, password });
       localStorage.setItem("users", JSON.stringify(users));
+      sessionStorage.setItem("isAuthenticated", "true");
       alert("Пользователь зарегистрирован!");
-    } else {
+      navigate("/order");
+    } else if (existingUser.password === password) {
+      sessionStorage.setItem("isAuthenticated", "true");
       alert("Добро пожаловать!");
+      navigate("/order");
+    } else {
+      alert("Неверный пароль.");
     }
   };
 

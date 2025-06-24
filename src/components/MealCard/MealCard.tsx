@@ -12,7 +12,7 @@ interface MealCardProps {
 }
 
 export const MealCard: React.FC<MealCardProps> = ({ item }) => {
-  const { add } = useCart(); // 🔁 Redux instead of Context
+  const { add } = useCart(); 
   const [amount, setAmount] = useState<number>(1);
 
   const handleAmountChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +20,7 @@ export const MealCard: React.FC<MealCardProps> = ({ item }) => {
   };
 
   const handleAddToCart = () => {
-    add(String(item.id), amount); // 👈 из useCart
+    add(String(item.id), amount); 
     setAmount(1);
   };
 
