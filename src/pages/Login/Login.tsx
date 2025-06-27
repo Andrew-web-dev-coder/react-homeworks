@@ -1,15 +1,20 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Button } from "@components/ui/Button/Button";
 import { Input } from "@components/ui/Input/Input";
 import type { User, Errors } from "types";
 import "./Login.css";
 
-
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [errors, setErrors] = useState<Errors>({ username: false, password: false });
+  const [errors, setErrors] = useState<Errors>({
+    username: false,
+    password: false,
+  });
+
+  const navigate = useNavigate();
 
   const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,15 +36,20 @@ const Login: React.FC = () => {
     if (!existingUser) {
       users.push({ username, password });
       localStorage.setItem("users", JSON.stringify(users));
+      sessionStorage.setItem("isAuthenticated", "true");
       alert("Пользователь зарегистрирован!");
-    } else {
+      navigate("/order");
+    } else if (existingUser.password === password) {
+      sessionStorage.setItem("isAuthenticated", "true");
       alert("Добро пожаловать!");
+      navigate("/order");
+    } else {
+      alert("Неверный пароль.");
     }
   };
 
   return (
     <>
-      
       <section className="login-section">
         <h2 className="login-title">Log in</h2>
         <div className="login-wrapper">
@@ -73,7 +83,6 @@ const Login: React.FC = () => {
           </form>
         </div>
       </section>
-     
     </>
   );
 };

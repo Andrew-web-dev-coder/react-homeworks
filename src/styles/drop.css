@@ -11,39 +11,30 @@
 	box-sizing: border-box;
 }
 
-:root {
-	--bg-black: #000;
-	--text-white: #fff;
-	/* background-color: #f5fbfc; */
-  }
-
 /* Links */
-
 a, a:link, a:visited  {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 a:hover  {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 /* Common */
-
-
-
 body {
-    margin: 0;
-    font-family: "Poppins", serif;
-    line-height: 1.6;
-    color: #000000;
-  }
+	margin: 0;
+	font-family: "Poppins", serif;
+	line-height: 1.6;
+	color: var(--text-color);              
+	background-color: var(--bg-color);     
+}
 
 aside, nav, header, section, main {
 	display: block;
 }
 
 h1, h2, h3, h4, h5, h6, p {
-    font-size: inherit;
+	font-size: inherit;
 	font-weight: inherit;
 }
 
@@ -61,14 +52,12 @@ img, svg {
 }
 
 address {
-  font-style: normal;
+	font-style: normal;
 }
 
 /* Form */
-
 input, textarea, button, select {
 	font-family: inherit;
-    /* font-size: inherit; */
 }
 
 input::-ms-clear {
@@ -76,14 +65,14 @@ input::-ms-clear {
 }
 
 button, input[type="submit"] {
-    box-shadow: none;
-    background: none;
-    cursor: pointer;
+	box-shadow: none;
+	background: none;
+	cursor: pointer;
 }
 
 input:focus, input:active,
 button:focus, button:active {
-    outline: none;
+	outline: none;
 }
 
 button::-moz-focus-inner {
@@ -100,7 +89,6 @@ legend {
 }
 
 /* input */
-
 input {
 	width: auto;
 	border: 0;
@@ -112,5 +100,4 @@ input {
 	cursor: pointer;
 	transition: 0.2s ease-in-out;
 	position: relative;
-  }
-  
+}
