@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 
@@ -8,6 +8,7 @@ import Cart from "@images/icons/Cart.png";
 
 import { useCart } from "@hooks/useCart";
 import { useFetch } from "@hooks/useFetch";
+import { ThemeContext } from "@context/ThemeContext"; 
 
 interface HeaderLink {
   label: string;
@@ -19,6 +20,8 @@ const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [username, setUsername] = useState<string>("");
+
+  const { theme, toggleTheme } = useContext(ThemeContext); // 🆕 используем тему
 
   const { data, status, error } = useFetch<any>("https://dummyjson.com/carts");
   useFetch("https://dummyjson.com/products/1", { method: "GET" });
@@ -87,6 +90,12 @@ const Header: React.FC = () => {
             })}
           </ul>
 
+          {/* 🌗 Кнопка смены темы */}
+          <button className="theme-toggle" onClick={toggleTheme}>
+            {theme === "light" ? "🌙" : "☀️"}
+          </button>
+
+          {/* 🛒 Корзина */}
           <Link to="/order" className="cart-button">
             <img src={Cart} alt="Cart icon" />
             <div className="cart-count">

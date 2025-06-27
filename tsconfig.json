@@ -19,6 +19,7 @@
       "@images/*": ["assets/images/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
+      "@context/*": ["context/*"] ,
       "@types/*": ["types/*"]
     },
     "typeRoots": ["src/types", "node_modules/@types"]

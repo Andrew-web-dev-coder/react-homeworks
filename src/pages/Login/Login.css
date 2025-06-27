@@ -1,3 +1,5 @@
+@import "@styles/drop.css";
+
 .login-section {
   background-image: url("../../assets/images/backgrounds/BG Shape Content.png");
   background-size: cover;
@@ -9,9 +11,14 @@
   align-items: center;
 }
 
+[data-theme='dark'] .login-section {
+  background-color: var(--bg-color);
+  background-image: none;
+}
+
 .login-title {
   text-align: center;
-  color: #35b8be;
+  color: var(--link-color); 
   font-size: 55px;
   letter-spacing: 1.5px;
   margin-bottom: 40px;
@@ -19,11 +26,12 @@
 
 .login-wrapper {
   font-family: 'Inter';
-  background: #ffffff;
+  background: var(--card-bg); 
+  color: var(--text-color);    
   width: 635px;
   padding: 40px 68px 40px 40px;
   border-radius: 8px;
-  border: 1px solid #35B8BE26;
+  border: 1px solid var(--border-color); 
   box-sizing: border-box;
 }
 
@@ -32,7 +40,7 @@
   font-size: 18px;
   display: flex;
   flex-direction: column;
-
+  color: var(--text-color); 
 }
 
 .login-form {
@@ -52,15 +60,17 @@
   font-weight: 500;
   font-size: 16px;
   text-align: right;
+  color: var(--text-color); 
 }
 
 .login-input {
   flex: 1;
   padding: 12px 16px;
   border-radius: 6px;
-  border: 1px solid #dddddd;
-  background-color: #fafafa;
+  border: 1px solid var(--border-color); 
+  background-color: var(--input-bg);     
   font-size: 16px;
+  color: var(--text-color);              
 }
 
 .login-input.error {
@@ -74,14 +84,13 @@
 }
 
 .login-button.cancel {
-  background-color: white;
-  border: 1px solid #61728333;
-  color: #333;
+  background-color: var(--card-bg);        
+  border: 1px solid var(--border-color);  
+  color: var(--text-color);             
   margin-left: 30px;
 }
 
 .login-button.cancel:hover {
-  background-color:#61728333;
-  border: 1px solid #ffffff;
-
+  background-color: var(--border-color);   
+  border: 1px solid var(--text-color);     
 }

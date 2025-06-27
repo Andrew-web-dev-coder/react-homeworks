@@ -1,0 +1,27 @@
+/* light theme (default) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --header-color: #ffffff;
+  --link-color: #35B8BE;
+  --button-bg: #35B8BE;
+  --button-text: #ffffff;
+  --section-bg: #F5FBFC;
+  --card-bg: #ffffff;
+  --border-color: #DDDDDD;
+  --input-bg: #FAFAFA;
+}
+
+/* dark theme */
+[data-theme='dark'] {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+  --header-color: #1e1e1e;
+  --link-color: #4fd1c5;
+  --button-bg: #35B8BE;
+  --button-text: #ffffff;
+  --section-bg: #1a1a1a;
+  --card-bg: #1e1e1e;
+  --border-color: #333333;
+  --input-bg: #2c2c2c;
+}

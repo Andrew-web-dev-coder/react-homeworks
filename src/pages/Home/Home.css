@@ -1,3 +1,5 @@
+@import "@styles/drop.css";
+
 .home-section {
   background-image: url("../../assets/images/backgrounds/Trapezoid.png");
   background-repeat: no-repeat;
@@ -5,6 +7,20 @@
   background-size: cover;
   padding: 40px 0;
   min-height: 100vh;
+  position: relative;
+}
+
+[data-theme="dark"] .home-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-color);
+  z-index: 0;
+}
+
+.home-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .container {
@@ -21,6 +37,11 @@
   font-weight: 500;
   line-height: 60px;
   margin-bottom: 20px;
+  color: #000;
+}
+
+[data-theme="dark"] .title {
+  color: #ffffff;
 }
 
 .highlight {
@@ -33,6 +54,10 @@
   margin-bottom: 24px;
   max-width: 520px;
   color: #546285;
+}
+
+[data-theme="dark"] .description {
+  color: #8899aa;
 }
 
 .button {
@@ -56,6 +81,11 @@
   font-size: 16px;
   margin-left: 2px;
   margin-top: 10px;
+  color: #000;
+}
+
+[data-theme="dark"] .trust-text {
+  color: #ffffff;
 }
 
 .rating {

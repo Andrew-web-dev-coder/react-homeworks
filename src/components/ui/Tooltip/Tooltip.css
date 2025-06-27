@@ -25,6 +25,12 @@
     visibility: hidden;
     transition: all 0.3s ease;
   }
+
+  [data-theme='dark']  .tooltip-text {
+  background-color: var(--input-bg);
+  background-image: none;
+  color: var(--text-color);
+  }
   
   .tooltip:hover .tooltip-text {
     opacity: 1;

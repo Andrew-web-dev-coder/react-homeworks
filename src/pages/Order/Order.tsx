@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Order.css";
 import { useCart } from "@hooks/useCart";
-import { Button } from "@components/ui/Button/Button"; // ✅ импорт компонента
+import { Button } from "@components/ui/Button/Button"; 
+import { Input } from "@components/ui/Input/Input";
 
 interface Meal {
   id: string;
@@ -78,7 +79,7 @@ const Order: React.FC = () => {
               <p className="order-price">
                 ${(meal.price * cart[meal.id]).toFixed(2)} USD
               </p>
-              <input
+              <Input
                 type="number"
                 className="order-qty"
                 value={cart[meal.id]}
@@ -98,12 +99,12 @@ const Order: React.FC = () => {
       <form className="order-form">
         <div className="order-form-group">
           <label htmlFor="street">Street</label>
-          <input type="text" id="street" />
+          <Input type="text" id="street" />
         </div>
 
         <div className="order-form-group">
           <label htmlFor="house">House</label>
-          <input type="text" id="house"  />
+          <Input type="text" id="house" />
         </div>
 
         <Button type="submit" className="order-submit">Order</Button>

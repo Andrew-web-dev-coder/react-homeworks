@@ -10,7 +10,16 @@ input {
     align-content: center;
     transition: all 0.3s ease;
     padding: 11px 2px;
-    text-align: left;
+    text-align: center;
+  }
+
+  [data-theme='dark'] .input {
+  color: var(--text-color);
+  }
+
+  [data-theme='dark'] .input {
+  background-color: var(--input-bg);;
+  background-image: none;
   }
   
   input[type=number]::-webkit-inner-spin-button,
