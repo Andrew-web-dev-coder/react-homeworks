@@ -19,10 +19,11 @@
       "@images/*": ["assets/images/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
-      "@context/*": ["context/*"] ,
-      "@types/*": ["types/*"]
+      "@context/*": ["context/*"]
     },
-    "typeRoots": ["src/types", "node_modules/@types"]
+    "types": ["jest", "node", "@testing-library/jest-dom"],
+    "typeRoots": ["src/types", "node_modules/@types"], 
+    "isolatedModules": true
   },
   "include": ["src"]
 }

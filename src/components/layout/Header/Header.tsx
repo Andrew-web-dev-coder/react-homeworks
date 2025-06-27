@@ -21,7 +21,7 @@ const Header: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [username, setUsername] = useState<string>("");
 
-  const { theme, toggleTheme } = useContext(ThemeContext); // 🆕 используем тему
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const { data, status, error } = useFetch<any>("https://dummyjson.com/carts");
   useFetch("https://dummyjson.com/products/1", { method: "GET" });

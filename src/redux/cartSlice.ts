@@ -22,12 +22,18 @@ const cartSlice = createSlice({
     addToCart(state, action: PayloadAction<{ id: string; amount: number }>) {
       const { id, amount } = action.payload;
       state.cart[id] = (state.cart[id] || 0) + amount;
+      sessionStorage.setItem("cart", JSON.stringify(state.cart));
     },
     removeFromCart(state, action: PayloadAction<string>) {
       delete state.cart[action.payload];
+      sessionStorage.setItem("cart", JSON.stringify(state.cart));
     },
-  },
+    resetCart(state) {
+      state.cart = {};
+      sessionStorage.removeItem("cart");
+    }
+  }
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, resetCart } = cartSlice.actions;
 export default cartSlice.reducer;
